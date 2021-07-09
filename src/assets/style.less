@@ -1,0 +1,105 @@
+#root {
+    --brand-color: #FF3F00;
+    --circle-size: 100%;
+    --padding-grid: 20px;
+
+    &.desktop {
+        --padding: 120px;
+    }
+    &.tablet {
+        --padding: 60px;
+        --padding-grid: 40px;
+    }
+    &.laptop {
+        --padding: 80px;
+    }
+    &.phone {
+        --padding: 20px;
+    }
+
+    @media (orientation: landscape) {
+        --vh: 1vh !important;
+    }
+
+    @media (orientation: portrait) {
+        --vw: 1vw !important;
+    }
+
+    --vh100: calc(100 * var(--vh));
+    --vh95: calc(95 * var(--vh));
+    --vh90: calc(90 * var(--vh));
+    --vh85: calc(85 * var(--vh));
+    --vh80: calc(80 * var(--vh));
+    --vh75: calc(75 * var(--vh));
+    --vh70: calc(70 * var(--vh));
+    --vh65: calc(65 * var(--vh));
+    --vh60: calc(60 * var(--vh));
+    --vh55: calc(55 * var(--vh));
+    --vh50: calc(50 * var(--vh));
+    --vh45: calc(45 * var(--vh));
+    --vh40: calc(40 * var(--vh));
+    --vh35: calc(35 * var(--vh));
+    --vh30: calc(30 * var(--vh));
+    --vh25: calc(25 * var(--vh));
+    --vh20: calc(20 * var(--vh));
+    --vh15: calc(15 * var(--vh));
+    --vh10: calc(10 * var(--vh));
+    --vh5: calc(5 * var(--vh));
+
+    --vh-100: calc(-100 * var(--vh));
+    --vh-95: calc(-95 * var(--vh));
+    --vh-90: calc(-90 * var(--vh));
+    --vh-85: calc(-85 * var(--vh));
+    --vh-80: calc(-80 * var(--vh));
+    --vh-75: calc(-75 * var(--vh));
+    --vh-70: calc(-70 * var(--vh));
+    --vh-65: calc(-65 * var(--vh));
+    --vh-60: calc(-60 * var(--vh));
+    --vh-55: calc(-55 * var(--vh));
+    --vh-50: calc(-50 * var(--vh));
+    --vh-45: calc(-45 * var(--vh));
+    --vh-40: calc(-40 * var(--vh));
+    --vh-35: calc(-35 * var(--vh));
+    --vh-30: calc(-30 * var(--vh));
+    --vh-25: calc(-25 * var(--vh));
+    --vh-20: calc(-20 * var(--vh));
+    --vh-15: calc(-15 * var(--vh));
+    --vh-10: calc(-10 * var(--vh));
+    --vh-5: calc(-5 * var(--vh));
+
+    --gr1: calc((100 * var(--vw) - 2 * var(--padding)) / 12);
+    --grh: calc(.5 * var(--gr1));
+    --gr2: calc(2 * var(--gr1));
+    --gr3: calc(3 * var(--gr1));
+    --gr4: calc(4 * var(--gr1));
+    --gr5: calc(5 * var(--gr1));
+    --gr6: calc(6 * var(--gr1));
+    --gr7: calc(7 * var(--gr1));
+    --gr8: calc(8 * var(--gr1));
+    --gr9: calc(9 * var(--gr1));
+    --gr10: calc(10 * var(--gr1));
+    --gr11: calc(11 * var(--gr1));
+    --gr12: calc(12 * var(--gr1));
+    --gr12x1: calc((100vw - 2 * var(--padding)));
+    --gr12x2: calc((200vw - 2 * var(--padding)));
+    --gr12x3: calc((300vw - 2 * var(--padding)));
+    --gr12x4: calc((400vw - 2 * var(--padding)));
+    --gr12x5: calc((500vw - 2 * var(--padding)));
+
+    --gr-1: calc(-1 * var(--gr1));
+    --gr-h: calc(-.5 * var(--gr1));
+    --gr-2: calc(-2 * var(--gr1));
+    --gr-3: calc(-3 * var(--gr1));
+    --gr-4: calc(-4 * var(--gr1));
+    --gr-5: calc(-5 * var(--gr1));
+    --gr-6: calc(-6 * var(--gr1));
+    --gr-7: calc(-7 * var(--gr1));
+    --gr-8: calc(-8 * var(--gr1));
+    --gr-9: calc(-9 * var(--gr1));
+    --gr-10: calc(-10 * var(--gr1));
+    --gr-11: calc(-11 * var(--gr1));
+    --gr-12: calc(-12 * var(--gr1));
+}
+
+@import "default.less";
+@import "form.less";

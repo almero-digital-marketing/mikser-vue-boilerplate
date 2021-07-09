@@ -1,0 +1,23 @@
+---
+plugins: [files, json, whitebox]
+---
+<% config = @json(@file('/domain.config.json')) %>
+
+<% if @document.meta.head? : %>
+    <title><%= @document.meta.head.title %></title>
+    <% for item in @document.meta.head.meta : %>
+        <% if item.content and item.content[0] is '/'? : %>
+            <meta name="<%= item.name %>" content="<%= @storage(item.content) %>" />
+        <% else : %>
+            <meta name="<%= item.name %>" content="<%= item.content %>" />
+        <% end %>
+    <% end %>
+<% end %>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','<%= config.gtm %>');</script>
+<!-- End Google Tag Manager -->

@@ -1,0 +1,37 @@
+blank: true
+plugins: [ect, markdown, archieml, yaml, json, caching, images, videos, gate, assets, whitebox]
+workers: 2
+cleanUrls: true
+rsync: true
+layouts:
+- pattern: '**/ssl.nginx.conf'
+  layout: /system/ssl.ect
+- pattern: '**/nossl.nginx.conf'
+  layout: /system/nossl.ect
+- pattern: '**/sitemap.xml'
+  layout: /system/sitemap.ect
+- pattern: '**/robots.txt'
+  layout: /system/robots.ect
+- pattern: '**/*'
+  layout: '404'
+compile:
+- command: grunt gallery
+  pattern: '**/gallery/**/*'
+  sync: true
+- command: grunt email
+  pattern: '**/email/**/*'
+  sync: true
+whitebox:
+  layout:
+    source: /out/index.html
+    meta: 
+      partials:
+        head: /head.ect
+        body: /body.ect
+  services:
+    feed:
+      url: https://feed.whitebox.pro
+      token: eyJhbGciOiJSUzI1NiJ9.ewoJImFwaSI6IHRydWUsCgkiZmVlZCI6IHsKICAgICAgICAiZG9tYWluIjogImFsbWVyby5wcm8iLAogICAgICAgICJjb250ZXh0IjogIm1pa3NlciIKCX0KfQ.oub7v-hGMMCJ_vPEcBLN-B32gL87iRIFd0rzgJs6j4Hgb5kYKkEemeVqHVVzPDzBRzp9gP8ml12IzKmNQa3l6nJ8B2Dl0hFt7hic80pJON9S4oSV7LEupbBRwdON6vh-xCO3WaslKFFJbYcHXkuFg6vPUpU9wp4mneru3cz3FYT4G3-3kdPRSDvvIifauWFhGxRIlTXIgrS8F0bkSbywg9brSL7B0v7zuXJo-Jl2OVDAUEWwrjM1cJNMiduEIfXqBl0u_gmjcMMIX7PL5FWseXyI3KgqOwXtvQCUvKfakpbDlCkLKnFpfB8q7tvycq9Q2TIF5JW0linlpJNKnIwQCA
+    storage:
+      url: https://storage.whitebox.pro
+      token: eyJhbGciOiJSUzI1NiJ9.ewoJImFwaSI6IHRydWUsCgkic3RvcmFnZSI6IHsKCQkidmVyc2lvbiI6IDEsCiAgICAgICAgImRvbWFpbiI6ICJhbG1lcm8ucHJvIiwKICAgICAgICAiY29udGV4dCI6ICJtaWtzZXIiLAogICAgICAgICJzYWx0IjogIm1pa3NlciIKCX0KfQ.DN78ZxTAkX2VXHmNuTzgmelEQZ-FotJ0lkU3s0em629r2zRUgiwYB5B784y-WycnALKFhaJ-La1p08vKxeQZeO9EU_H9mIkcz7-JShsH-uRq1tk4YB8LaNrOzgCkkKvo4n9UM29g4efqOxW_UilUO4jShSj3-9gLnK4XoWY7f1GYLtIWXXK76eU0ZLgV2ZenLSKmcCknGnG--kF08kLM9CdNTiXufK2adtAcTCrSc7m_CIYle6X8oDJWN3mctsAB3x-65WLcZpsAzRLc4AARUPHgvb_LkZh-7-1hqXkH0eDE5FfJH5UfFp0SWI1uXZNSqvWdk96-BsGtvHBmgSZKYg

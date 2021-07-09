@@ -1,0 +1,22 @@
+target: whitebox
+href: /web
+lang: bg
+layout: Home
+
+title: Начало
+
+head: 
+  title: Начало
+  meta:
+  - name: description
+    content: Описание за Google
+  - name: og:title
+    content: Запитване
+  - name: og:description
+    content: Описание за Facebook
+  - name: og:image
+    content:
+  - name: og:type
+    content: website
+  - name: og:url
+    content: https://almero.pro

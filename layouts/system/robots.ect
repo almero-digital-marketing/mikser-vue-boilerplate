@@ -1,0 +1,9 @@
+---
+plugins: [files, json]
+---
+<% config = @json(@file('/domain.config.json')) %>
+
+User-agent: *
+Allow: /
+
+Sitemap: https://<%- config.domain %>/sitemap.xml

@@ -1,0 +1,32 @@
+---
+plugins: [files, json]
+---
+<% config = @json(@file('/domain.config.json')) %>
+
+server {
+    server_name <%- config.domain %> www.<%- config.domain %>;
+    include /opt/server-configs-nginx/https.conf;
+}
+server {
+    server_name www.<%- config.domain %>;
+   	ssl_certificate /var/certs/<%- config.domain %>/<%- config.domain %>.cert;
+	ssl_certificate_key /var/certs/<%- config.domain %>/<%- config.domain %>.key;
+    include /opt/server-configs-nginx/ssl-www.conf;
+}
+server {
+    server_name <%- config.domain %>;
+   	ssl_certificate /var/certs/<%- config.domain %>/<%- config.domain %>.cert;
+	ssl_certificate_key /var/certs/<%- config.domain %>/<%- config.domain %>.key;
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|svg|ico|ttf)$ {
+        expires 180d;
+        add_header Cache-Control "public, no-transform";
+    }
+
+    include /opt/server-configs-nginx/ssl-app.conf; 
+    include /var/www/<%- config.domain %>/redirect.nginx.conf;
+    <%- @content %>
+
+    access_log /var/log/nginx/<%- config.domain %>.access.log main;
+    error_log /var/log/nginx/<%- config.domain %>.error.log warn;
+}

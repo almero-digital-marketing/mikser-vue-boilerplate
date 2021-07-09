@@ -1,0 +1,14 @@
+{
+	query: { 
+		$and : [
+			{ 'meta.active': true },
+			{ '_id': {
+				$nin: [/apache.htaccess$/, /sitemap.xml$/, /system.yml$/, /.swig$/, /robots.txt$/, /readme.md$/i, /reference/, /notifications/]
+			}}
+		]
+	},
+	projection: {
+		content: 0,
+		meta: 0
+	}
+}

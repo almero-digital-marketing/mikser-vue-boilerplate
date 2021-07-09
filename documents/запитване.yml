@@ -1,0 +1,31 @@
+target: whitebox
+href: /web/request
+lang: bg
+layout: Request
+
+head: 
+  title: Запитване
+  meta:
+  - name: description
+    content: Описание за Google
+  - name: og:title
+    content: Запитване
+  - name: og:description
+    content: Описание за Facebook
+  - name: og:image
+    content:
+  - name: og:type
+    content: website
+  - name: og:url
+    content: https://almero.pro/запитване
+
+request:
+  to: info@almero.com
+  subject: Запитване - Стартиращ бранд - {{rid}} - almero.com
+  template: /storage/email/request.hbs
+confirmation:
+  name: Алмеро
+  subject: Получено запитване
+  template: /storage/email/confirmation.mjml
+  title: Благодарим за | запитването!
+  message: Очаквайте обратна връзка в рамките | на (5) работни дни.

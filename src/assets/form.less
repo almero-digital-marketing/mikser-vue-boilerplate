@@ -1,0 +1,195 @@
+form {
+    label {
+        margin-top: 20px;
+    	font-size: 1rem;
+        line-height: 1.6;
+        user-select: none;
+        .mini & {
+            margin-top: 12px;
+        }
+    }
+    input[type='radio'],
+    input[type='checkbox'] {
+        display: none;
+        cursor: pointer;
+        &:focus,
+        &:active {
+            outline: none;
+        }
+        &:checked {
+            + label {
+                &::after {
+                    opacity: 1;
+                    background-image: url(./img/check.svg) !important;
+                }
+                &::before {
+                    box-shadow: inset 0 0 0 16px var(--brand-color);
+                    border-color: var(--brand-color);
+                }
+            }
+        }
+        + label {
+            cursor: pointer;
+            display: block;
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 30px;
+            padding-left: 38px;
+            color: #000000;
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;      
+                width: 26px;
+                height: 26px;
+                left: 0;
+                top: 2px;
+                display: inline-block;
+                text-align: center;
+                transition: all .2s ease-in-out;
+            }
+            &::after {
+                width: 26px;
+                height: 26px;
+                background-image: url(./img/check.svg);
+                background-position: 7px 9px;
+                background-size: auto 11px;
+                background-repeat: no-repeat;
+                opacity: 0;
+                transition: all .2s ease-in-out;
+            }
+            &::before {
+                background-color: rgba(255, 255, 255, .9);
+                border: 1px solid var(--darkgray-color);
+                transition: all .2s ease-in-out;
+            }
+            &:hover,
+            &:hover::after {
+                opacity: 1;
+                @media (orientation: portrait) {
+                    background-image: none;
+                }
+            }
+            &:hover::before {
+                border: 1px solid var(--brand-color);
+            }
+        }
+    }
+
+    input[type='checkbox'] + label {
+        &::before {
+            border-radius: 8px;
+        }
+    }
+    
+    input[type='radio'] + label {
+        &::before {
+            border-radius: 50%;
+        }
+    }
+
+    input[type='text'],
+    input[type='email'],
+    input[type='tel'] {
+        border-bottom: 3px solid black;
+        width: 100%;
+        display: block;
+        font-family: Exo2, serif;
+        padding: 5px 0;
+        padding-bottom: 7px;
+        font-weight: 200;
+        font-size: 1rem;
+        line-height: 1.4;
+        font-style: italic;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        background-color: transparent;
+        z-index: 3;
+
+        .mobile & {
+            margin-top: 20px;
+        }
+
+        & + label {
+            position: absolute;
+            top: -14px;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.4;
+            font-style: italic;
+            transition: all .2s;
+            z-index: -1;
+            margin-top: 20px;
+        }
+        &:required + label {
+            font-weight: 900;
+        }
+        &:focus + label,
+        &.not-empty + label {
+            top: -36px;
+            font-size: .8rem;
+            font-weight: 400;
+            color: var(--darkgray-color);
+        }
+        &:invalid.not-empty {
+            color: var(--brand-color);
+            border-color: var(--brand-color);
+        }
+    }
+
+    input,
+    textarea,
+    select {
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus {
+            -webkit-text-fill-color: #000000;
+            box-shadow: 0 0 0px 1000px #ffffff inset;
+            font-weight: 900;
+        }
+    }
+
+    textarea {
+        margin-top: 20px;
+        width: 100%;
+        border: 1px solid var(--darkgray-color);
+        font-family: Exo2, serif;
+        padding: 5px 10px;
+        font-weight: 200;
+        font-size: 1rem;
+        line-height: 1.4;
+        font-style: italic;
+        transition: height .2s ease-out .1s, opacity .2s ease-in;
+        background-color: rgba(255, 255, 255, .9);
+        border-radius: 8px;
+        &:hover,
+        &:focus {
+            border: 1px solid var(--brand-color);
+        }
+    }
+    
+    .input {
+        &.text { 
+            position: relative;
+        }
+    
+        &.other {
+            margin-bottom: -20px;
+            textarea {
+                height: 0;
+                opacity: 0;
+            }
+            input[type='radio'],
+            input[type='checkbox'] {
+                &:checked + label + textarea {
+                    height: 120px;
+                    opacity: 1;
+                    .phone & {
+                        height: 80px;
+                    }
+                }
+            }
+        }
+    }
+}

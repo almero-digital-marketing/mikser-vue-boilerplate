@@ -1,0 +1,55 @@
+<mjml>
+    <mj-head>
+        <mj-title>Потвърждение за запитване</mj-title>
+        <mj-preview>Бладодарим, че се свързахте с нас</mj-preview>
+        <mj-font 
+            name="Exo 2"
+            href="https://fonts.googleapis.com/css?family=Exo+2" />
+        <mj-attributes>
+            <mj-all font-family="'Exo 2', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif"></mj-all>
+        </mj-attributes>
+        <mj-style inline="inline">
+        .text-link {
+            text-decoration: none;
+            color: unset;
+            font-weight: 300; 
+            display: inline-block;
+        }
+        .text-icon {
+            display: inline-block;
+        }
+        b {
+            color:#F45E43; 
+            font-size:20px;
+        }
+        </mj-style>
+    </mj-head>
+    <mj-body background-color="#FFFFFF" width="600px">
+        <mj-wrapper 
+            background-color="#F5F5F5"
+            padding-top="22px"
+            background-repeat="no-repeat"
+            background-url="https://storage.whitebox.pro/sync/almero.pro/mikser/storage/email/hero.773268c8-a1b9-4b29-8fd0-c3ef432aead5.gif">
+            <mj-section padding="0 15px">
+                <mj-column>
+                    <mj-image 
+                    alt="Boilerplate"
+                    align="left" 
+                    width="100px" 
+                    src="https://storage.whitebox.pro/sync/almero.pro/mikser/storage/email/logo.4dba7c67-51ce-495b-8f3c-f5e374cb67ba.png">
+                </mj-column>
+            </mj-section>
+            <mj-section padding="120px 10% 20px">
+                <mj-column>
+                    <mj-text font-size="14px" font-weight="800" padding-top="5px" color="#F45E43">{{ name }}</mj-text>
+                </mj-column>
+            </mj-section>
+            <mj-section padding="20px 10% 40px">
+                <mj-column>
+                    <mj-text font-weight="800" font-size="24px" line-height="30px">{{{ confirmation-title }}}</mj-text>
+                    <mj-text padding-top="5px" font-size="16px" line-height="20px">{{{ confirmation-message }}}</mj-text>
+                </mj-column>
+            </mj-section>
+        </mj-wrapper>
+    </mj-body>
+</mjml>
