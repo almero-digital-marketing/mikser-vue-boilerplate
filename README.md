@@ -1,4 +1,4 @@
-# Мmikser vue boilerplate
+# Мikser Vue Boilerplate
 
 ## Project setup
 ```
