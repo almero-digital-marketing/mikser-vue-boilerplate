@@ -1,0 +1,8 @@
+target: whitebox
+href: /web/product
+route: /:slug
+woo: /products
+lang: bg
+layout: Product
+
+title: Продукт

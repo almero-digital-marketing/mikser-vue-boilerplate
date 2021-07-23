@@ -3,11 +3,21 @@
 		<div id="menu">
 			<div id="logo">
 				<router-link to="/">
-					<img src="./assets/img/logo.svg" alt="Logo">
+					<img src="./assets/img/logo.svg" alt="Logo" width="12">
 					<span>{{ href('/web/translation').meta.company }}</span>
 				</router-link>
 			</div>
+			<div id="cart" v-if="cart">
+				<h2>{{ href('/web/translation').meta.cart }}</h2>
+				<ul>
+					<li v-for="item in cart.items" :key="item.item_key">
+						{{ item.quantity.value }}x {{ item.name }} 
+						<button @click="removeFromCart({ item: item.item_key })">Remove from cart</button> <button @click="updateInCart({ item: item.item_key, quantity: 1 })">Update in cart</button>
+					</li>
+				</ul>
+			</div>
 			<div class="main-menu">
+				<h2>{{ href('/web/translation').meta.menu }}</h2>
 				<ul>
 					<li>
 						<router-link :to="href('/web').link">{{ href('/web/translation').meta.home }}</router-link>
@@ -78,3 +88,4 @@ export default {
 	opacity: 0;
 }
 </style>
+
