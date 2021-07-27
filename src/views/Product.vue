@@ -1,19 +1,26 @@
 <template>
 	<div class="product">
-		<h1>{{ document.meta.title }} / {{ woo.slug }}</h1>
+		<h1>{{ document.meta.title || document.meta.options.title }} / {{ woo.slug }} / {{ productId }}</h1>
 		<ul>
-			<li v-for="item in wooProducts" :key="item.permalink">{{ item.name }}: {{ item.price }} <button @click="addToCart(item.id)">Add to cart</button></li>
+			<li>{{ wooProduct.name }}: {{ wooProduct.price }} <button @click="addToCart(wooProduct.id)">Add to cart</button></li>
 		</ul>
 	</div>
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+
 export default {
 	name: 'Product',
 	components: {
 	},
 	setup() {
-
+		const store = useStore()
+		const productId = computed(() => store.getters['woo/product'].id)
+		return {
+			productId
+		}
     },
 }
 </script>

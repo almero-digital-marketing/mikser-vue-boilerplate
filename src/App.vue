@@ -7,10 +7,10 @@
 					<span>{{ href('/web/translation').meta.company }}</span>
 				</router-link>
 			</div>
-			<div id="cart" v-if="cart">
+			<div id="cart" v-if="wooCart">
 				<h2>{{ href('/web/translation').meta.cart }}</h2>
 				<ul>
-					<li v-for="item in cart.items" :key="item.item_key">
+					<li v-for="item in wooCart.items" :key="item.item_key">
 						{{ item.quantity.value }}x {{ item.name }} 
 						<button @click="removeFromCart({ item: item.item_key })">Remove from cart</button> <button @click="updateInCart({ item: item.item_key, quantity: 1 })">Update in cart</button>
 					</li>
