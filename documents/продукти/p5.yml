@@ -1,0 +1,77 @@
+target: whitebox
+lang: bg
+layout: Product
+href: /web/products/p5
+
+head: 
+  title: Black Market - Продукт 5
+  meta:
+  - name: description
+    content: Описание за Google
+  - name: og:title
+    content: Запитване
+  - name: og:description
+    content: Описание за Facebook
+  - name: og:image
+    content:
+  - name: og:type
+    content: website
+  - name: og:url
+    content: https://almero.pro
+
+woo:
+  endpoint: /products
+  slug: p5
+  return_variations: true
+
+options:
+  code: p5
+  title: Сив панталон
+  image: /images/jpg/_DSC6024-res.jpg
+  details: |
+    Изработката на облекло по поръчка е най-добрият начин да
+    намериш себе си в свят, който ти предлага безброй готови
+    отговори на въпросите за стила и модата. Не позволявай на
+    никого да те убеди, че трябва се да съобразяваш само със
+    сезонните тенденции или да подражаваш на кумири.
+  care: | 
+    Когато се стремите към успешно онлайн позициониране, водещо към разширяване на бизнеса ви, е важно да получите цялостно обслужване.
+  type: jacket
+  price: 100
+  sizes:
+    38: true
+    40: false
+    42: true
+    44: false
+    50: true
+
+presentation:
+  gallery: 
+  - image: /images/jpg/_DSC6024-res.jpg
+    width: 95%
+    align: right
+  - image: /images/price_image.jpg
+    width: 80%
+    align: right
+  - image: /images/product-5.jpg
+    align: right
+    width: 75%
+  - image: /images/jpg/_DSC6024-res-crop.jpg
+    width: 90%
+    align: left
+  - image: /images/jpg/_SV_5878.jpg
+    align: left^
+  - image: /images/jpg/_SV_5878.jpg
+    align: left
+    width: 90%
+  related:
+    content: |
+      ## Офис
+      За нетипично високия ръст, път към
+      безупречния стил за важен повод. За
+      нетипично високия ръст, път към безупречния
+      стил за важен повод. За нетипично високия
+      ръст, път към безупречния стил за важен
+      повод. За нетипично високия ръст, път към
+      безупречния стил за важен повод.
+    stylings: ['/shop/stylings/s1','/shop/stylings/s2', '/shop/stylings/s3']
