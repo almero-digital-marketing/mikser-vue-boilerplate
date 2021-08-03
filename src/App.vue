@@ -48,8 +48,6 @@ export default {
 		const { mediaList, mediaQuery } = useResponsiveness()
 		
 		const store = useStore()
-		const init = () => store.dispatch('mikser/init', ['/web/translation'])
-		const live = () => store.dispatch('mikser/live', false)
 		const head = computed(() => store.getters['mikser/document']?.meta.head || {})
 		const style = computed(() => {
 			return {
@@ -60,9 +58,14 @@ export default {
 
 		useHead(head)
 
-		init().then(async () => {
+		Promise.all([
+			store.dispatch('mikser/init', ['/web/translation']),
+			store.dispatch('woo/loadSettings'),
+			store.dispatch('woo/loadCart'),
+		])
+		.then(async () => {
 			await nextTick()
-			live()
+			await store.dispatch('mikser/live', false)
 		})
 		return {
 			style,

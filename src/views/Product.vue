@@ -1,6 +1,6 @@
 <template>
-	<div class="product">
-		<h1>{{ document.meta.title || document.meta.options.title }} / {{ woo.slug }} / {{ productId }}</h1>
+	<div class="product" v-if="wooProduct">
+		<h1>{{ document.meta.title || document.meta.options.title }} / {{ wooProduct.slug }} / {{ productId }}</h1>
 		<ul>
 			<li>{{ wooProduct.name }}: {{ wooProduct.price }} <button @click="addToCart(wooProduct.id)">Add to cart</button></li>
 		</ul>
