@@ -3,7 +3,14 @@ const config = require('./domain.config.json')
 module.exports = function(grunt) {
 	grunt.initConfig({
 		clean: {
-			dist: ['dist/storage', 'out/**/*.html'],
+			storage: ['dist/storage'],
+			templates: ['out/**/*.html', 'dist/**/*.html']
+		},
+		cleanempty: {
+			dist: ['dist/**/*', 'out/**/*'],
+			options: {
+				files: false,
+			},
 		},
 		image: {
 			options: {
@@ -79,6 +86,11 @@ module.exports = function(grunt) {
 					{ src: 'dist/nossl.conf', dest: 'dist/nossl.nginx.conf' },
 					{ src: 'dist/ssl.conf', dest: 'dist/ssl.nginx.conf' },
 				]
+			},
+			template: {
+				files: [
+					{ src: 'out/index.html', dest: 'out/template.html' },
+				]
 			}
 		},
 		rsync: {
@@ -137,10 +149,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-exec');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-juice-email');
+	grunt.loadNpmTasks('grunt-cleanempty');
 
-	grunt.registerTask('deploy', ['newer:image:dist', 'sync:dist', 'rename:dist', 'clean:dist', 'rsync', 'exec:dps']);
-	grunt.registerTask('default', ['newer:image:dist', 'sync:dist', 'rename:dist', 'clean:dist']);
+	grunt.registerTask('deploy', ['newer:image:dist', 'sync:dist', 'rename:dist', 'clean:storage', 'rsync', 'exec:dps', 'clean:templates', 'cleanempty:dist']);
+	grunt.registerTask('default', ['newer:image:dist', 'sync:dist', 'rename:dist', 'clean:templates', 'cleanempty:dist']);
 	
+	grunt.registerTask('template', ['rename:template']);
 	grunt.registerTask('gallery', ['newer:image:gallery']);
 	grunt.registerTask('email', ['newer:less:email', 'newer:juice:email']);
 };
