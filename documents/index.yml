@@ -1,6 +1,8 @@
 target: whitebox
 href: /web
-woo: /products/84
+woo: 
+  endpoint: /products/84
+  return_variations: true
 lang: bg
 layout: Home
 

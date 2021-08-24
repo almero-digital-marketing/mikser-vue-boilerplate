@@ -10,6 +10,15 @@ const routes = [
 		path: '/request',
 		name: 'Request',
 		component: () => import(/* webpackChunkName: "request" */ '../views/Request.vue'),
+		meta: {
+			wooData: () => {
+				return {
+					slug: 'p2',
+					return_variations: true,
+					endpoint: '/products'
+				}
+			}
+		}
 	},
 	{
 		path: '/product',

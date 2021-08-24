@@ -1,8 +1,7 @@
 <template>
 	<div class="home">
 		<h1>{{ document.meta.title }}</h1>
-		<router-link :to="href('/web/product').link + '/p1'">{{ woo.name }}</router-link>
-		{{ wooProduct }}
+		<router-link :to="href('/web/product').link + '/' + woo.slug">{{ woo.name }}</router-link>
 	</div>
 </template>
 

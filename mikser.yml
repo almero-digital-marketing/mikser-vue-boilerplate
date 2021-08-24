@@ -12,7 +12,7 @@ layouts:
   layout: /system/sitemap.ect
 - pattern: '**/robots.txt'
   layout: /system/robots.ect
-- pattern: '**/*'
+- pattern: '/system/**/*'
   layout: '404'
 compile:
 - command: grunt gallery
@@ -23,7 +23,7 @@ compile:
   sync: true
 whitebox:
   layout:
-    source: /out/index.html
+    source: /out/template.html
     meta: 
       partials:
         head: /head.ect

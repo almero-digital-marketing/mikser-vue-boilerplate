@@ -4,11 +4,11 @@
 			<div id="logo">
 				<router-link to="/">
 					<img src="./assets/img/logo.svg" alt="Logo" width="12">
-					<span>{{ href('/web/translation').meta.company }}</span>
+					<span>{{ href('/system/translation').meta.company }}</span>
 				</router-link>
 			</div>
 			<div id="cart" v-if="wooCart">
-				<h2>{{ href('/web/translation').meta.cart }}</h2>
+				<h2>{{ href('/system/translation').meta.cart }}</h2>
 				<ul>
 					<li v-for="item in wooCart.items" :key="item.item_key">
 						{{ item.quantity.value }}x {{ item.name }} 
@@ -16,14 +16,23 @@
 					</li>
 				</ul>
 			</div>
+			<div id="wishlist" v-if="wooWishlist">
+				<h2>{{ href('/system/translation').meta.wishlist }}</h2>
+				<ul>
+					<li v-for="item in wooWishlist.items" :key="item.item_id">
+						{{ item.quantity }}x {{ item.name }} 
+						<button @click="removeFromWishlist({ item: item.item_id })">Remove from wishlist</button>
+					</li>
+				</ul>
+			</div>
 			<div class="main-menu">
-				<h2>{{ href('/web/translation').meta.menu }}</h2>
+				<h2>{{ href('/system/translation').meta.menu }}</h2>
 				<ul>
 					<li>
-						<router-link :to="href('/web').link">{{ href('/web/translation').meta.home }}</router-link>
+						<router-link :to="href('/web').link">{{ href('/system/translation').meta.home }}</router-link>
 					</li>
 					<li>
-						<router-link :to="href('/web/request').link">{{ href('/web/translation').meta.request }}</router-link>
+						<router-link :to="href('/web/request').link">{{ href('/system/translation').meta.request }}</router-link>
 					</li>
 				</ul>
 			</div>
@@ -59,9 +68,10 @@ export default {
 		useHead(head)
 
 		Promise.all([
-			store.dispatch('mikser/init', ['/web/translation']),
+			store.dispatch('mikser/init', ['/system/translation']),
 			store.dispatch('woo/loadSettings'),
 			store.dispatch('woo/loadCart'),
+			store.dispatch('woo/loadWishlist'),
 		])
 		.then(async () => {
 			await nextTick()
@@ -87,7 +97,7 @@ export default {
 	transition-duration: .25s;
 }
 
-.fade-enter, .fade-leave-active {
+.fade-enter-from, .fade-leave-to {
 	opacity: 0;
 }
 </style>

@@ -2,7 +2,11 @@
 	<div class="product" v-if="wooProduct">
 		<h1>{{ document.meta.title || document.meta.options.title }} / {{ wooProduct.slug }} / {{ productId }}</h1>
 		<ul>
-			<li>{{ wooProduct.name }}: {{ wooProduct.price }} <button @click="addToCart(wooProduct.id)">Add to cart</button></li>
+			<li>
+				<span>{{ wooProduct.name }}: {{ wooProduct.price }}</span>
+				<button @click="addToCart({ id: wooProduct.id.toString(), variation: { attribute_pa_size: '48' } })">Add to cart</button>  
+				<button @click="addToWishlist(wooProduct.id)">Add to wishlist</button>
+			</li>
 		</ul>
 	</div>
 </template>

@@ -1,5 +1,5 @@
 target: whitebox
-href: /web/translation
+href: /system/translation
 lang: bg
 active: false
 
@@ -8,3 +8,4 @@ home: Начало
 request: Запитване
 cart: Количка
 menu: Меню
+wishlist: Любими
