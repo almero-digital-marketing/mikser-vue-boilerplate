@@ -2,12 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
 	{
-		path: '/',
 		name: 'Home',
 		component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
 	},
 	{
-		path: '/request',
 		name: 'Request',
 		component: () => import(/* webpackChunkName: "request" */ '../views/Request.vue'),
 		meta: {
@@ -21,7 +19,6 @@ const routes = [
 		}
 	},
 	{
-		path: '/product',
 		name: 'Product',
 		component: () => import(/* webpackChunkName: "product" */ '../views/Product.vue'),
 	},
