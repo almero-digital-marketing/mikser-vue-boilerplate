@@ -1,9 +1,5 @@
 import domainConfig from '../domain.config.json'
 
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-gsap.registerPlugin(ScrollTrigger)
-
 import { createApp } from 'vue'
 import { mikserApp, mikserMixin } from 'mikser-whitebox-vue'
 import { createHead } from '@vueuse/head'
@@ -17,8 +13,15 @@ import HoverIntent from './lib/HoverIntent'
 import EnhanceInput from './lib/EnhanceInput'
 import ScrollLink from './lib/ScrollLink'
 
-import 'vue-universal-modal/dist/index.css'
-import VueUniversalModal from 'vue-universal-modal'
+import ScrollTrigger from 'vue-gsap-scrolltrigger'
+import 'vue-autoplay/dist/style.css'
+import { AutoplayAnimation, AutoplayVideo } from 'vue-autoplay'
+import { Carousel, Slide } from 'vue-overflow-carousel'
+import 'vue-overflow-carousel/dist/style.css'
+import { Masonry } from 'vue-minimasonry'
+import 'vue-minimasonry/dist/style.css'
+
+import { vfmPlugin } from 'vue-final-modal'
 
 import { wooApp, wooMixin } from 'woocommerce-whitebox-vue'
 
@@ -32,6 +35,13 @@ const head = createHead()
     app.component('PhoneLink', PhoneLink)
     app.component('Metatext', Metatext)
     
+    app.component('ScrollTrigger', ScrollTrigger)
+    app.component('AutoplayAnimation', AutoplayAnimation)
+    app.component('AutoplayVideo', AutoplayVideo)
+    app.component('Carousel', Carousel)
+    app.component('Slide', Slide)
+    app.component('Masonry', Masonry)
+
     let woo = wooApp(app, { store, router, domainConfig })
     app.mixin(wooMixin)
     
@@ -39,9 +49,7 @@ const head = createHead()
     await woo()
     
     app.use(head)
-    app.use(VueUniversalModal, {
-        teleportTarget: '#modals'
-    })
+    app.use(vfmPlugin)
     app.mixin(mikserMixin)
     
     app.directive('hover-intent', HoverIntent)

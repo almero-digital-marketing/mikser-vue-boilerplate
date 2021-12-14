@@ -1,0 +1,58 @@
+## WhiteBox
+
+WHITEBOX_FEED_URL: https://feed.whitebox.pro
+WHITEBOX_FEED_TOKEN: eyJhbGciOiJSUzI1NiJ9.ewoJImFwaSI6IHRydWUsCgkiZmVlZCI6IHsKICAgICAgICAiZG9tYWluIjogImFsbWVyby5wcm8iLAogICAgICAgICJjb250ZXh0IjogIm1pa3NlciIsCgkJInJvbGVzIjogImVkaXRvciIKCX0KfQ.HTqUlb2UWv7yhUIsAtdk3yum5LH_hIRZHiT6iDE1BnceADj5qAOk4mafMQ4vITvc_I2Koh7cFZ2bayWHmc4q-MwNAzb88qM3_9RZdGJDdZCjGuiuY-_cLwMka9qtaXHpFs5bon_RwD5nni-T16rGscwZ6fKMJXBZmBv6p8blLfNdXCg_7zmXpeUQJYVXsxZOPi2HRykDhi8YcfUCcEE41IAWTeUltr7j_NzRkrai5OsLYoTQbsBZKv9cxrgE-o3Ek-eHu_1LDX_zU0hUD0JgxagJoeog434J7X3TYuEzsGlrYqVpRwf3fgfNMxxdURK8Z_PJ8SS39KLlHVw58b9tVw
+WHITEBOX_STORAGE_URL: https://storage.whitebox.pro
+WHITEBOX_STORAGE_TOKEN: eyJhbGciOiJSUzI1NiJ9.ewoJImFwaSI6IHRydWUsCgkic3RvcmFnZSI6IHsKCQkidmVyc2lvbiI6IDEsCiAgICAgICAgImRvbWFpbiI6ICJhbG1lcm8ucHJvIiwKICAgICAgICAiY29udGV4dCI6ICJtaWtzZXIiLAogICAgICAgICJzYWx0IjogIm1pa3NlciIKCX0KfQ.DN78ZxTAkX2VXHmNuTzgmelEQZ-FotJ0lkU3s0em629r2zRUgiwYB5B784y-WycnALKFhaJ-La1p08vKxeQZeO9EU_H9mIkcz7-JShsH-uRq1tk4YB8LaNrOzgCkkKvo4n9UM29g4efqOxW_UilUO4jShSj3-9gLnK4XoWY7f1GYLtIWXXK76eU0ZLgV2ZenLSKmcCknGnG--kF08kLM9CdNTiXufK2adtAcTCrSc7m_CIYle6X8oDJWN3mctsAB3x-65WLcZpsAzRLc4AARUPHgvb_LkZh-7-1hqXkH0eDE5FfJH5UfFp0SWI1uXZNSqvWdk96-BsGtvHBmgSZKYg
+
+## General
+
+PUBLIC_URL: "https://cms.almero.pro"
+
+## Database
+
+DB_CLIENT: "sqlite3"
+DB_FILENAME: "./data/documents.local.db"
+
+## Rate Limiting
+
+RATE_LIMITER_ENABLED: false
+RATE_LIMITER_STORE: memory
+RATE_LIMITER_POINTS: 25
+RATE_LIMITER_DURATION: 1
+
+## Cache
+
+CACHE_ENABLED: false
+
+## File Storage
+
+STORAGE_LOCATIONS: "local"
+STORAGE_LOCAL_DRIVER: "local"
+STORAGE_LOCAL_ROOT: "./uploads"
+
+## Security
+
+KEY: "9e83b531-4abe-4edd-8d1f-e6e216a5df0d"
+SECRET: "0r-4jHiUqWcKrVKH9mR8VxjKE8bNRupT"
+
+ACCESS_TOKEN_TTL: "15m"
+REFRESH_TOKEN_TTL: "7d"
+REFRESH_TOKEN_COOKIE_SECURE: false
+REFRESH_TOKEN_COOKIE_SAME_SITE: "lax"
+REFRESH_TOKEN_COOKIE_NAME: "directus_refresh_token"
+
+## Auth Providers
+
+AUTH_PROVIDERS: ""
+
+## Extensions
+
+EXTENSIONS_PATH: "./extensions"
+
+## Email
+
+EMAIL_FROM: "no-reply@directus.io"
+EMAIL_TRANSPORT: "sendmail"
+EMAIL_SENDMAIL_NEW_LINE: "unix"
+EMAIL_SENDMAIL_PATH: "/usr/sbin/sendmail"
