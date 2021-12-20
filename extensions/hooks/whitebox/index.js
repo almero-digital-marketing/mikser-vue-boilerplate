@@ -1,1 +1,0 @@
-/home/dick/Projects/directus-whitebox/dist/index.js

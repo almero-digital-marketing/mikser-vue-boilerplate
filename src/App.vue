@@ -57,7 +57,21 @@ export default {
 		const { mediaList, mediaQuery } = useResponsiveness()
 		
 		const store = useStore()
-		const head = computed(() => store.getters['mikser/document']?.meta.head || {})
+		const head = computed(() => {
+			let head = store.getters['mikser/document']?.meta.head || {}
+			if (Array.isArray(head)) {
+				head = { 
+					meta: head.filter(meta => {
+						if (meta.name == 'title') {
+							head.title = meta.content
+							return false
+						}
+						return true
+					})
+				}
+			}
+			return head
+		})
 		const style = computed(() => {
 			return {
 				'--vw': Math.floor(window.innerWidth / 100) + 'px',
