@@ -1,4 +1,5 @@
 {
+    "WHITEBOX_GLOBAL": true,
     "WHITEBOX_FEED_URL": "https://feed.whitebox.pro",
     "WHITEBOX_FEED_TOKEN": "eyJhbGciOiJSUzI1NiJ9.ewoJImFwaSI6IHRydWUsCgkiZmVlZCI6IHsKICAgICAgICAiZG9tYWluIjogImFsbWVyby5wcm8iLAogICAgICAgICJjb250ZXh0IjogIm1pa3NlciIsCgkJInJvbGVzIjogImVkaXRvciIKCX0KfQ.HTqUlb2UWv7yhUIsAtdk3yum5LH_hIRZHiT6iDE1BnceADj5qAOk4mafMQ4vITvc_I2Koh7cFZ2bayWHmc4q-MwNAzb88qM3_9RZdGJDdZCjGuiuY-_cLwMka9qtaXHpFs5bon_RwD5nni-T16rGscwZ6fKMJXBZmBv6p8blLfNdXCg_7zmXpeUQJYVXsxZOPi2HRykDhi8YcfUCcEE41IAWTeUltr7j_NzRkrai5OsLYoTQbsBZKv9cxrgE-o3Ek-eHu_1LDX_zU0hUD0JgxagJoeog434J7X3TYuEzsGlrYqVpRwf3fgfNMxxdURK8Z_PJ8SS39KLlHVw58b9tVw",
     "WHITEBOX_STORAGE_URL": "https://storage.whitebox.pro",
