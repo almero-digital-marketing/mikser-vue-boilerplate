@@ -5,7 +5,7 @@
     "WHITEBOX_STORAGE_URL": "https://storage.whitebox.pro",
     "WHITEBOX_STORAGE_TOKEN": "eyJhbGciOiJSUzI1NiJ9.ewoJImFwaSI6IHRydWUsCgkic3RvcmFnZSI6IHsKCQkidmVyc2lvbiI6IDEsCiAgICAgICAgImRvbWFpbiI6ICJhbG1lcm8ucHJvIiwKICAgICAgICAiY29udGV4dCI6ICJtaWtzZXIiLAogICAgICAgICJzYWx0IjogIm1pa3NlciIKCX0KfQ.DN78ZxTAkX2VXHmNuTzgmelEQZ-FotJ0lkU3s0em629r2zRUgiwYB5B784y-WycnALKFhaJ-La1p08vKxeQZeO9EU_H9mIkcz7-JShsH-uRq1tk4YB8LaNrOzgCkkKvo4n9UM29g4efqOxW_UilUO4jShSj3-9gLnK4XoWY7f1GYLtIWXXK76eU0ZLgV2ZenLSKmcCknGnG--kF08kLM9CdNTiXufK2adtAcTCrSc7m_CIYle6X8oDJWN3mctsAB3x-65WLcZpsAzRLc4AARUPHgvb_LkZh-7-1hqXkH0eDE5FfJH5UfFp0SWI1uXZNSqvWdk96-BsGtvHBmgSZKYg",
 
-    "PUBLIC_URL": "https://cms.almero.pro",
+    "PUBLIC_URL": "https://cms2.almero.pro",
 
     "DB_CLIENT": "sqlite3",
     "DB_FILENAME": "./database/documents.public.db",
