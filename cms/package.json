@@ -11,6 +11,18 @@
   "license": "ISC",
   "dependencies": {
     "directus": "^9.3.0",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "aguid": "^2.0.0",
+		"axios": "^0.24.0",
+		"bluebird": "^3.7.2",
+		"form-data": "^4.0.0",
+		"fs-ext": "^2.0.0",
+		"fs-extra-promise": "^1.0.1",
+		"glob-promise": "^4.2.2",
+		"hasha": "^5.2.2",
+		"node-machine-id": "^1.1.12",
+		"queue": "^6.0.2",
+		"throttle-debounce": "^3.0.1",
+		"uuid": "^3.4.0"
   }
 }
