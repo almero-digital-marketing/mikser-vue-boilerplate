@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "CONFIG_PATH=directus.public.yml npx directus start"
+    "start": "CONFIG_PATH=directus.public.json npx directus start"
   },
   "keywords": [],
   "author": "",
