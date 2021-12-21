@@ -1,0 +1,540 @@
+version: 1
+directus: 9.3.0
+collections:
+  - collection: head
+    meta:
+      collection: head
+      icon: null
+      note: null
+      display_template: null
+      hidden: true
+      singleton: false
+      translations: null
+      archive_field: null
+      archive_app_filter: true
+      archive_value: null
+      unarchive_value: null
+      sort_field: null
+      accountability: all
+      color: null
+      item_duplication_fields: null
+      sort: null
+      group: null
+      collapse: open
+    schema:
+      name: head
+      sql: >-
+        CREATE TABLE "head" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+        `name` varchar(255) NOT NULL DEFAULT null, `content` text NULL)
+  - collection: products
+    meta:
+      collection: products
+      icon: null
+      note: null
+      display_template: '{{name}}'
+      hidden: false
+      singleton: false
+      translations: null
+      archive_field: null
+      archive_app_filter: true
+      archive_value: null
+      unarchive_value: null
+      sort_field: null
+      accountability: all
+      color: null
+      item_duplication_fields: null
+      sort: 1
+      group: null
+      collapse: open
+    schema:
+      name: products
+      sql: >-
+        CREATE TABLE "products" (`id` integer PRIMARY KEY AUTOINCREMENT NOT
+        NULL, `name` varchar(255) NULL, `layout` varchar(255) NULL DEFAULT
+        'Product', `target` varchar(255) NULL DEFAULT 'whitebox')
+  - collection: products_head
+    meta:
+      collection: products_head
+      icon: import_export
+      note: null
+      display_template: null
+      hidden: true
+      singleton: false
+      translations: null
+      archive_field: null
+      archive_app_filter: true
+      archive_value: null
+      unarchive_value: null
+      sort_field: null
+      accountability: all
+      color: null
+      item_duplication_fields: null
+      sort: null
+      group: null
+      collapse: open
+    schema:
+      name: products_head
+      sql: >-
+        CREATE TABLE "products_head" (`id` integer PRIMARY KEY AUTOINCREMENT NOT
+        NULL, `products_id` integer NULL, `head_id` integer NULL, CONSTRAINT
+        `products_head_head_id_foreign` FOREIGN KEY (`head_id`) REFERENCES
+        `head` (`id`) ON DELETE CASCADE, CONSTRAINT
+        `products_head_products_id_foreign` FOREIGN KEY (`products_id`)
+        REFERENCES `products` (`id`) ON DELETE CASCADE)
+fields:
+  - collection: head
+    field: id
+    type: integer
+    schema:
+      name: id
+      table: head
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      generation_expression: null
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      has_auto_increment: true
+      foreign_key_column: null
+      foreign_key_table: null
+    meta:
+      collection: head
+      field: id
+      special: null
+      interface: input
+      options: null
+      display: null
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: null
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+  - collection: head
+    field: name
+    type: string
+    schema:
+      name: name
+      table: head
+      data_type: varchar
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      generation_expression: null
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+    meta:
+      collection: head
+      field: name
+      special: null
+      interface: select-dropdown
+      options:
+        choices:
+          - text: title
+            value: title
+          - text: description
+            value: description
+          - text: og:title
+            value: og:title
+          - text: og:description
+            value: og:description
+          - text: og:image
+            value: og:image
+          - text: og:type
+            value: og:type
+          - text: og:url
+            value: og:url
+        allowOther: true
+      display: null
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: null
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: true
+      group: null
+  - collection: head
+    field: content
+    type: text
+    schema:
+      name: content
+      table: head
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      generation_expression: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+    meta:
+      collection: head
+      field: content
+      special: null
+      interface: input-multiline
+      options: null
+      display: null
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: null
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: true
+      group: null
+  - collection: products_head
+    field: id
+    type: integer
+    schema:
+      name: id
+      table: products_head
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      generation_expression: null
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      has_auto_increment: true
+      foreign_key_column: null
+      foreign_key_table: null
+    meta:
+      collection: products_head
+      field: id
+      special: null
+      interface: null
+      options: null
+      display: null
+      display_options: null
+      readonly: false
+      hidden: true
+      sort: null
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+  - collection: products_head
+    field: products_id
+    type: integer
+    schema:
+      name: products_id
+      table: products_head
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      generation_expression: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: products
+    meta:
+      collection: products_head
+      field: products_id
+      special: null
+      interface: null
+      options: null
+      display: null
+      display_options: null
+      readonly: false
+      hidden: true
+      sort: null
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+  - collection: products_head
+    field: head_id
+    type: integer
+    schema:
+      name: head_id
+      table: products_head
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      generation_expression: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: id
+      foreign_key_table: head
+    meta:
+      collection: products_head
+      field: head_id
+      special: null
+      interface: null
+      options: null
+      display: null
+      display_options: null
+      readonly: false
+      hidden: true
+      sort: null
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+  - collection: products
+    field: id
+    type: integer
+    schema:
+      name: id
+      table: products
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      generation_expression: null
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      has_auto_increment: true
+      foreign_key_column: null
+      foreign_key_table: null
+    meta:
+      collection: products
+      field: id
+      special: null
+      interface: input
+      options: null
+      display: null
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: null
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+  - collection: products
+    field: name
+    type: string
+    schema:
+      name: name
+      table: products
+      data_type: varchar
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      generation_expression: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+    meta:
+      collection: products
+      field: name
+      special: null
+      interface: input
+      options: null
+      display: null
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: null
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+  - collection: products
+    field: layout
+    type: string
+    schema:
+      name: layout
+      table: products
+      data_type: varchar
+      default_value: Product
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      generation_expression: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+    meta:
+      collection: products
+      field: layout
+      special: null
+      interface: null
+      options: null
+      display: null
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: null
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+  - collection: products
+    field: target
+    type: string
+    schema:
+      name: target
+      table: products
+      data_type: varchar
+      default_value: whitebox
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_generated: false
+      generation_expression: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      has_auto_increment: false
+      foreign_key_column: null
+      foreign_key_table: null
+    meta:
+      collection: products
+      field: target
+      special: null
+      interface: null
+      options: null
+      display: null
+      display_options: null
+      readonly: true
+      hidden: true
+      sort: null
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+  - collection: products
+    field: head
+    type: alias
+    schema: null
+    meta:
+      collection: products
+      field: head
+      special:
+        - m2m
+      interface: list-m2m
+      options:
+        template: "[{{head_id.name}}]\_{{head_id.content}}"
+        enableSelect: false
+      display: related-values
+      display_options:
+        template: "[{{head_id.name}}]\_{{head_id.content}}"
+      readonly: false
+      hidden: false
+      sort: null
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+relations:
+  - collection: directus_collections
+    field: group
+    related_collection: directus_collections
+    schema:
+      table: directus_collections
+      column: group
+      foreign_key_table: directus_collections
+      foreign_key_column: collection
+      on_update: NO ACTION
+      on_delete: NO ACTION
+      constraint_name: null
+    meta: null
+  - collection: products_head
+    field: products_id
+    related_collection: products
+    schema:
+      table: products_head
+      column: products_id
+      foreign_key_table: products
+      foreign_key_column: id
+      on_update: NO ACTION
+      on_delete: CASCADE
+      constraint_name: null
+    meta:
+      many_collection: products_head
+      many_field: products_id
+      one_collection: products
+      one_field: head
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: head_id
+      sort_field: null
+      one_deselect_action: delete
+  - collection: products_head
+    field: head_id
+    related_collection: head
+    schema:
+      table: products_head
+      column: head_id
+      foreign_key_table: head
+      foreign_key_column: id
+      on_update: NO ACTION
+      on_delete: CASCADE
+      constraint_name: null
+    meta:
+      many_collection: products_head
+      many_field: head_id
+      one_collection: head
+      one_field: null
+      one_collection_field: null
+      one_allowed_collections: null
+      junction_field: products_id
+      sort_field: null
+      one_deselect_action: nullify

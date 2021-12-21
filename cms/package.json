@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "CONFIG_PATH=directus.public.json npx directus start"
+    "start": "CONFIG_PATH=directus.global.json npx directus start",
+    "dev": "CONFIG_PATH=local.local.json npx directus start",
+    "snapshot": "CONFIG_PATH=directus.local.json directus schema snapshot ./database/schema.local.yml --format yaml",
+    "apply": "CONFIG_PATH=directus.global.json directus schema apply ./database/schema.local.yml --format yaml"
   },
   "keywords": [],
   "author": "",

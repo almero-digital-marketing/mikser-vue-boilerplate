@@ -8,7 +8,7 @@
     "PUBLIC_URL": "https://cms.almero.pro",
 
     "DB_CLIENT": "sqlite3",
-    "DB_FILENAME": "./database/documents.public.db",
+    "DB_FILENAME": "./database/documents.global.db",
 
     "RATE_LIMITER_ENABLED": false,
     "RATE_LIMITER_STORE": "memory",
