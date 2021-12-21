@@ -46,7 +46,7 @@
     "sqlite3": "^5.0.2",
     "swiper": "^6.8.1",
     "vue": "^3.2.1",
-    "vue-autoplay": "^1.0.25",
+    "vue-autoplay": "^1.0.26",
     "vue-ellipse-progress": "^2.0.0-beta.0",
     "vue-final-modal": "^3.4.3",
     "vue-gsap-scrolltrigger": "^2.0.3",
