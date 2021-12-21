@@ -1,5 +1,5 @@
 <template>
-	<div id="root" :style="style" :class="mediaList">
+	<div id="root" :style="style" :class="mediaList" v-touch-intent>
 		<div id="menu">
 			<div id="logo">
 				<router-link to="/">
@@ -16,7 +16,7 @@
 					</li>
 				</ul>
 			</div>
-			<div id="wishlist" v-if="wooWishlist">
+			<!-- <div id="wishlist" v-if="wooWishlist">
 				<h2>{{ href('/system/translation').meta.wishlist }}</h2>
 				<ul>
 					<li v-for="item in wooWishlist.items" :key="item.item_id">
@@ -24,7 +24,7 @@
 						<button @click="removeFromWishlist({ item: item.item_id })">Remove from wishlist</button>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 			<div class="main-menu">
 				<h2>{{ href('/system/translation').meta.menu }}</h2>
 				<ul>
@@ -85,7 +85,7 @@ export default {
 			store.dispatch('mikser/init', ['/system/translation']),
 			store.dispatch('woo/loadSettings'),
 			store.dispatch('woo/loadCart'),
-			store.dispatch('woo/loadWishlist'),
+			// store.dispatch('woo/loadWishlist'),
 		])
 		.then(async () => {
 			await nextTick()
@@ -104,6 +104,13 @@ export default {
 
 #app {
 	position: relative;
+}
+
+#root {
+	transition: .2s ease-in-out;
+	&.touch-intent {
+		background-color: antiquewhite;
+	}
 }
 
 .fade-enter-active, .fade-leave-active {

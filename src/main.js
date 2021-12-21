@@ -9,9 +9,12 @@ import router from './router'
 import store from './store'
 
 import { Markdown, ExternalLink, PhoneLink, Metatext } from 'mikser-whitebox-vue/components'
-import HoverIntent from './lib/HoverIntent'
 import EnhanceInput from './lib/EnhanceInput'
 import ScrollLink from './lib/ScrollLink'
+import HoverIntent from './lib/HoverIntent'
+import TouchIntent from './lib/TouchIntent'
+import ScrollIntent from './lib/ScrollIntent'
+import WheelIntent from './lib/WheelIntent'
 
 import ScrollTrigger from 'vue-gsap-scrolltrigger'
 import 'vue-autoplay/dist/style.css'
@@ -52,9 +55,12 @@ const head = createHead()
     app.use(vfmPlugin)
     app.mixin(mikserMixin)
     
-    app.directive('hover-intent', HoverIntent)
     app.directive('enhance-input', EnhanceInput)
     app.directive('scroll-link', ScrollLink)
+    app.directive('hover-intent', HoverIntent)
+    app.directive('touch-intent', TouchIntent)
+    app.directive('scroll-intent', ScrollIntent)
+    app.directive('wheel-intent', WheelIntent)
     
     app
     .use(store)

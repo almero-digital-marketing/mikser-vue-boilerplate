@@ -5,13 +5,18 @@ export default {
             onMouseOver() {
                 if (!el.state.timer) {
                     el.state.timer = setTimeout(() => {
+                        el.classList.add('hover-intent')
                         if (binding.value) {
-                            binding.value(el.dataset.value)
+                            binding.value(el, true)
                         }
                     }, 200)
                 }
             },
             onMouseLeave() {
+                el.classList.remove('hover-intent')
+                if (binding.value) {
+                    binding.value(el, false)
+                }
                 clearTimeout(el.state.timer)
                 el.state.timer = null
             }
