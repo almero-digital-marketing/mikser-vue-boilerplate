@@ -1,5 +1,13 @@
 export default {
     mounted(el, binding) {
+        function findScroller(dest) {
+            if (dest.tagName == 'BODY') return window
+            const style = getComputedStyle(dest)
+            if (style.overflow.indexOf('scroll') > -1) {
+                return dest
+            }
+            return findScroller(dest.parentElement)
+        }
         el.state = {
             timer: null,
             onScroll() {
@@ -16,8 +24,8 @@ export default {
                 }, 1000)
             },
         }
-        
-        el.addEventListener('scroll', el.state.onScroll, { passive: true })
+        let scroller = findScroller(el)
+        el.addEventListener('scroll', scroller, { passive: true })
     },
     unmounted(el) {
         if (el.state) {
