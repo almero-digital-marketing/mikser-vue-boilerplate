@@ -9,6 +9,7 @@ export default {
             return findScroller(dest.parentElement)
         }
         el.state = {
+            scroller: findScroller(el),
             timer: null,
             onScroll() {
                 clearTimeout(el.state.timer)
@@ -24,12 +25,11 @@ export default {
                 }, 1000)
             },
         }
-        let scroller = findScroller(el)
-        el.addEventListener('scroll', scroller, { passive: true })
+        el.state.scroller.addEventListener('scroll', el.state.onScroll, { passive: true })
     },
     unmounted(el) {
         if (el.state) {
-            el.removeEventListener('scroll', el.state.onScroll)
+            el.state.scroller.removeEventListener('scroll', el.state.onScroll)
 
             clearTimeout(el.state.timer)
             delete el.state
