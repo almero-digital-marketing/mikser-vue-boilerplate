@@ -22,7 +22,7 @@ export default {
                     if (binding.value) {
                         binding.value(el, false)
                     }
-                }, 1000)
+                }, el.dataset.intent || 1000)
             },
         }
         el.state.scroller.addEventListener('scroll', el.state.onScroll, { passive: true })

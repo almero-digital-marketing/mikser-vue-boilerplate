@@ -9,7 +9,7 @@ export default {
                         if (binding.value) {
                             binding.value(el, true)
                         }
-                    }, 200)
+                    }, el.dataset.intent || 200)
                 }
             },
             onMouseLeave() {
