@@ -1,5 +1,5 @@
 <template>
-	<div id="root" :style="style" :class="mediaList" v-touch-intent>
+	<div id="root" :style="style" :class="mediaList" v-scroll-intent>
 		<div id="menu">
 			<div id="logo">
 				<router-link to="/">
@@ -104,6 +104,7 @@ export default {
 
 #app {
 	position: relative;
+	min-height: 300vw;
 }
 
 #root {
