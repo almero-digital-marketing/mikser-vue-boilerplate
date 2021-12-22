@@ -109,7 +109,8 @@ export default {
 
 #root {
 	transition: .2s ease-in-out;
-	&.touch-intent {
+	&.touch-intent,
+	&.scroll-intent {
 		background-color: antiquewhite;
 	}
 }
